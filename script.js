@@ -73,3 +73,44 @@ evalBtn.addEventListener('click', () => {
     }
   });
 });
+// your old script.js code here...
+
+// === Custom Fade In + Ripple ===
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeElements = document.querySelectorAll(".fade-in");
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  fadeElements.forEach(el => {
+    appearOnScroll.observe(el);
+  });
+});
+
+document.querySelectorAll("button").forEach(button => {
+  button.addEventListener("click", function (e) {
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    this.appendChild(ripple);
+
+    const rect = this.getBoundingClientRect();
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top = `${e.clientY - rect.top}px`;
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  });
+});
+
+
