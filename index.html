@@ -5,127 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Party</title>
 
-  <!-- Tailwind CSS (free CDN) -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- GSAP (animations) -->
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
   <style>
     :root { --accent:#00E5FF; --accent2:#ff2d55; }
     body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
     .font-hero { font-family: 'Orbitron', sans-serif; }
-    /* Nice neon ring around the password box */
-    .neon-ring {
-      position: relative;
-      isolation: isolate;
-    }
-    .neon-ring::before {
-      content:"";
-      position:absolute; inset:-2px;
-      background: conic-gradient(from 180deg, var(--accent), var(--accent2), var(--accent));
-      filter: blur(12px);
-      z-index:-1; border-radius: 1.25rem;
-      opacity:.65;
-    }
+    .float-btn { box-shadow: 0 6px 20px rgba(0,0,0,0.45); }
+    .calc-backdrop { background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); }
   </style>
 </head>
 <body class="bg-black text-white overflow-x-hidden">
 
-  <!-- ============ PASSWORD SCREEN ============ -->
-  <section id="password-screen" class="min-h-screen flex items-center justify-center px-6">
-    <div class="neon-ring bg-white/5 backdrop-blur-xl rounded-2xl p-8 w-full max-w-md text-center shadow-2xl">
-      <h1 class="font-hero text-3xl md:text-4xl mb-6 text-[var(--accent)]">Enter Password</h1>
-
-      <input id="password-input" type="password" placeholder="Type password here…"
-             class="w-full px-4 py-3 rounded-xl text-black focus:outline-none focus:ring-4 ring-[var(--accent)]/50 mb-4" />
-
-      <div class="relative">
-        <button id="ok-btn"
-                class="px-6 py-3 rounded-xl font-semibold bg-[var(--accent)] text-black hover:bg-cyan-300 transition will-change-transform">
-          Done!
-        </button>
-      </div>
-
-      <p id="error-msg" class="mt-4 text-sm text-red-400 hidden">❌ Wrong password. Try again.</p>
-
-      <p class="mt-6 text-xs text-white/60">Tip: Password is <span class="text-white/80">Apple</span></p>
-    </div>
-  </section>
-
-  <!-- ============ MAIN CONTENT ============ -->
-  <section id="main-content" class="hidden opacity-0">
-    <!-- Hero -->
+  <!-- Hero -->
+  <section id="main-content">
     <header class="min-h-[60vh] flex items-center justify-center text-center px-6 bg-gradient-to-b from-black via-zinc-900 to-black">
       <div>
-        <h2 class="font-hero text-4xl md:text-6xl tracking-wide mb-4 text-[var(--accent)]">🎉 Welcome to the Party</h2>
-        <p class="text-white/80 max-w-2xl mx-auto">Unlock good vibes, smooth animations, and a gallery that glows.</p>
+        <h2 class="font-hero text-4xl md:text-6xl tracking-wide mb-4 text-red-600">☠️ Wellcome to PornHub</h2>
+        <p class="text-white/80 max-w-2xl mx-auto">1 + 1 is equal to 2 and You are Gay.</p>
       </div>
     </header>
 
-    <!-- Cards -->
-    <main class="px-6 py-12 max-w-7xl mx-auto">
-      <h3 class="font-hero text-3xl md:text-4xl text-center mb-10">Our People</h3>
-
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Card 1 -->
-        <article class="product-card bg-white/5 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-          <img src="assets/20250508_125110.jpg" alt="Zarik" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h4 class="font-semibold text-xl text-[var(--accent)]">Zarik</h4>
-            <p class="text-white/80 mt-1">Age 3 — Loves toys and cartoons</p>
-            <a href="info-zarik.html" class="inline-block mt-4 px-4 py-2 rounded-lg bg-[var(--accent)] text-black font-semibold hover:bg-cyan-300 transition">Info</a>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="product-card bg-white/5 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-          <img src="assets/20250510_205251.jpg" alt="Zain" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h4 class="font-semibold text-xl text-[var(--accent)]">Zain</h4>
-            <p class="text-white/80 mt-1">Age 7 — Loves multiplayer games, cricket and sports</p>
-            <a href="info-zain.html" class="inline-block mt-4 px-4 py-2 rounded-lg bg-[var(--accent)] text-black font-semibold hover:bg-cyan-300 transition">Info</a>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="product-card bg-white/5 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-          <img src="assets/20250531_181828.jpg" alt="Furqan" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h4 class="font-semibold text-xl text-[var(--accent)]">Furqan</h4>
-            <p class="text-white/80 mt-1">Age 5 — Gets angry sometimes but loves outdoors</p>
-            <a href="info-furqan.html" class="inline-block mt-4 px-4 py-2 rounded-lg bg-[var(--accent)] text-black font-semibold hover:bg-cyan-300 transition">Info</a>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="product-card bg-white/5 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-          <img src="assets/20250401_174118.jpg" alt="Usman" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h4 class="font-semibold text-xl text-[var(--accent)]">Usman</h4>
-            <p class="text-white/80 mt-1">Age 12 — Enjoys making new inventions</p>
-            <a href="info-usman.html" class="inline-block mt-4 px-4 py-2 rounded-lg bg-[var(--accent)] text-black font-semibold hover:bg-cyan-300 transition">Info</a>
-          </div>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="product-card bg-white/5 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-          <img src="assets/20250119_122311.jpg" alt="Farha" class="w-full h-56 object-cover">
-          <div class="p-5">
-            <h4 class="font-semibold text-xl text-[var(--accent)]">Farha</h4>
-            <p class="text-white/80 mt-1">Age 7 — Loves toys and drawing</p>
-            <a href="info-farha.html" class="inline-block mt-4 px-4 py-2 rounded-lg bg-[var(--accent)] text-black font-semibold hover:bg-cyan-300 transition">Info</a>
-          </div>
-        </article>
-      </div>
+    <main class="px-6 py-12 max-w-4xl mx-auto">
+      <h3 class="font-hero text-3xl md:text-4xl text-center mb-10">About Us</h3>
+      <p class="text-center text-white/70 leading-relaxed">
+        This is your space. Clean, modern, animated with GSAP, styled with Tailwind — no password walls, no clutter.
+      </p>
     </main>
 
     <footer class="py-10 text-center text-white/60">© 2025 Party — All rights reserved</footer>
   </section>
 
+  <!-- Floating Calculator Button -->
+  <button id="open-calc" class="fixed right-6 bottom-6 z-50 w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-[var(--accent)] float-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="3" y="2" width="18" height="20" rx="2" ry="2"></rect>
+      <path d="M16 6h.01"></path>
+      <path d="M8 10h8M8 14h8M8 18h8"></path>
+    </svg>
+  </button>
+
+  <!-- Calculator Modal -->
+  <div id="calc-modal" class="fixed inset-0 z-40 hidden items-center justify-center px-4">
+    <div class="absolute inset-0 calc-backdrop" id="calc-backdrop"></div>
+
+    <div id="calc-card" class="relative w-full max-w-sm bg-zinc-900 rounded-2xl p-4 shadow-2xl border border-white/10 text-white">
+      <div class="flex justify-between items-center mb-4">
+        <h4 class="font-hero text-xl text-[var(--accent)]">Pornulator</h4>
+        <button id="close-calc" class="text-white/70 hover:text-white">✕</button>
+      </div>
+
+      <!-- Display -->
+      <div id="calc-display" class="bg-black/60 text-right text-2xl px-3 py-4 rounded-lg mb-4 font-mono">0</div>
+
+      <!-- Buttons grid -->
+      <div class="grid grid-cols-4 gap-3">
+        <button class="calc-btn">7</button>
+        <button class="calc-btn">8</button>
+        <button class="calc-btn">9</button>
+        <button class="calc-btn">/</button>
+
+        <button class="calc-btn">4</button>
+        <button class="calc-btn">5</button>
+        <button class="calc-btn">6</button>
+        <button class="calc-btn">*</button>
+
+        <button class="calc-btn">1</button>
+        <button class="calc-btn">2</button>
+        <button class="calc-btn">3</button>
+        <button class="calc-btn">-</button>
+
+        <button class="calc-btn">0</button>
+        <button class="calc-btn">.</button>
+        <button id="calc-eval" class="bg-[var(--accent)] text-black font-semibold">=</button>
+        <button class="calc-btn">+</button>
+      </div>
+
+      <!-- Clear button -->
+      <button id="calc-clear" class="w-full mt-4 px-4 py-3 rounded-lg bg-white/10 text-white/80 hover:bg-white/20 transition">Clear</button>
+
+      <!-- Result -->
+      <p id="calc-result" class="mt-3 text-center text-[var(--accent)] font-semibold"></p>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+
