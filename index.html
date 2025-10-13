@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hashim Agent — Video Edits Portfolio</title>
+  <meta name="description" content="Hashim Agent — affordable expert video editing portfolio." />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Canvas starfield background -->
+  <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
+
+  <!-- Preloader (short cinematic) -->
+  <div id="preloader" class="preloader" role="status" aria-live="polite">
+    <div class="preloader-inner">
+      <div class="loader-mark">HA</div>
+      <div class="loader-text">Hashim Agent — warming up the studio</div>
+      <div class="loader-track"><div id="loader-bar" class="loader-bar"></div></div>
+    </div>
+  </div>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="Go to hero">
+        <span class="brand-logo">HA</span>
+        <div class="brand-text">
+          <h1>Hashim Agent</h1>
+          <div class="muted">Portfolio • Video Editing</div>
+        </div>
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a class="nav-btn" id="nav-see-videos" href="#videos">See Videos</a>
+        <a class="nav-btn primary" href="mailto:darkonemood@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="kicker reveal" data-reveal-delay="120">Professional Video Edits</div>
+          <h2 id="hero-title" class="hero-title" aria-label="Hashim Agent">Hashim Agent</h2>
+
+          <p class="hero-sub reveal" data-reveal-delay="420">Get expert type video editing at a cheap price</p>
+
+          <div class="hero-cta reveal" data-reveal-delay="760">
+            <a class="cta primary btn-sweep" id="hero-see" href="#videos">See Video</a>
+            <a class="cta ghost" href="mailto:darkonemood@gmail.com">Contact</a>
+            <span class="tag">Affordable • Fast • Professional</span>
+          </div>
+
+          <p class="hero-desc muted reveal" data-reveal-delay="980">
+            A lean portfolio for creators and clients. Click a card to preview an edit — drop your mp4 links in the card's <code>data-video-src</code>.
+          </p>
+        </div>
+
+        <aside class="hero-art" aria-hidden="true">
+          <div class="art-stage">
+            <div class="neon-layer neon-blue"></div>
+            <div class="neon-layer neon-purple"></div>
+            <div class="art-card">
+              <div class="art-thumb">
+                <div class="thumb-inner">Preview Area</div>
+              </div>
+              <div class="art-meta">
+                <div class="muted small">Make every pixel personal</div>
+                <div class="made-badge">Made in Pakistan</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section id="videos" class="videos-section container">
+      <div class="section-head reveal" data-reveal-delay="120">
+        <h2>Recent edits</h2>
+        <p class="muted">Scroll to preview — click any card to open the player. Replace placeholder MP4s later.</p>
+      </div>
+
+      <div id="videos-grid" class="videos-grid">
+        <article class="video-card reveal" data-reveal-delay="200" data-video-src="">
+          <div class="video-thumb">
+            <div class="play-circle">▶</div>
+            <div class="thumb-text muted">Video coming soon</div>
+          </div>
+          <div class="meta">
+            <h3>Sample Edit #1</h3>
+            <p class="muted">90s cinematic cut — placeholder.</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal" data-reveal-delay="260" data-video-src="">
+          <div class="video-thumb">
+            <div class="play-circle">▶</div>
+            <div class="thumb-text muted">Video coming soon</div>
+          </div>
+          <div class="meta">
+            <h3>Sample Edit #2</h3>
+            <p class="muted">Short promo cut — placeholder.</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal" data-reveal-delay="320" data-video-src="">
+          <div class="video-thumb">
+            <div class="play-circle">▶</div>
+            <div class="thumb-text muted">Video coming soon</div>
+          </div>
+          <div class="meta">
+            <h3>Sample Edit #3</h3>
+            <p class="muted">Social cut — placeholder.</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal" data-reveal-delay="380" data-video-src="">
+          <div class="video-thumb">
+            <div class="play-circle">▶</div>
+            <div class="thumb-text muted">Video coming soon</div>
+          </div>
+          <div class="meta">
+            <h3>Sample Edit #4</h3>
+            <p class="muted">Trailer style — placeholder.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MODAL PLAYER -->
+    <div id="player-modal" class="modal" aria-hidden="true" role="dialog" aria-label="Video player">
+      <div class="modal-inner">
+        <button id="close-player" class="modal-close" aria-label="Close player">✕</button>
+        <div class="modal-body">
+          <video id="player-video" controls playsinline preload="metadata"></video>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <strong>Hashim Agent</strong> — Video Edits</div>
+      <div class="muted">Contact: <a href="mailto:darkonemood@gmail.com">darkonemood@gmail.com</a></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
